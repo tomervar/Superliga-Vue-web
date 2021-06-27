@@ -1,9 +1,15 @@
 <template>
   <div class="container">
     <h1 class="title">Main Page</h1>
-    <LoginPage v-if="!$root.store.username"></LoginPage>
-    <FavoriteGames v-else></FavoriteGames>
-    <LeagueInfo></LeagueInfo>
+    <div class="main_content">
+      <div class="float-child">
+        <LeagueInfo :key="this.$root.store.username"></LeagueInfo>
+      </div>
+      <div class="float-child">
+        <LoginPage v-if="!$root.store.username"></LoginPage>
+        <FavoriteGames v-else :showOnly3=true></FavoriteGames>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,7 +22,7 @@ export default {
     LeagueInfo, 
     LoginPage, 
     FavoriteGames
-  }
+  },
 };
 </script>
 
@@ -31,5 +37,16 @@ export default {
 ::v-deep .blur .recipe-preview {
   pointer-events: none;
   cursor: default;
+}
+.title{
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  color:  rgb(0, 113, 117);
+}
+.float-child{
+  width: 50%;
+  float: left;
+  padding: 20px;
 }
 </style>

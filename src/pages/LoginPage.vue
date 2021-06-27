@@ -50,12 +50,12 @@
     </b-form>
     <b-alert
       class="mt-2"
-      v-if="form.submitError"
+      v-if="this.form.submitError"
       variant="warning"
       dismissible
       show
     >
-      Login failed: {{ form.submitError }}
+      Login failed: {{ this.form.submitError }}
     </b-alert>
     <!-- <b-card class="mt-3" header="Form Data Result">
       <pre class="m-0">{{ form }}</pre>
@@ -94,20 +94,20 @@ export default {
     async Login() {
       try {
         const response = await this.axios.post(
-          "https://localhost:3000/user/Login",
+          "http://localhost:3000/Login",
           {
             username: this.form.username,
             password: this.form.password
           }
         );
-        // console.log(response);
+        console.log(response);
         // this.$root.loggedIn = true;
         console.log(this.$root.store.login);
-        this.$root.store.login(this.form.username);
-        this.$router.push("/");
+        this.$root.store.login(this.form.username,response.data.isAssociationMember);
+        this.$router.push("/").catch(()=>{this.$forceUpdate();});
       } catch (err) {
         console.log(err.response);
-        this.form.submitError = err.response.data.message;
+        this.form.submitError = err.response.data;
       }
     },
     onLogin() {

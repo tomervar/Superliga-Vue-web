@@ -6,19 +6,23 @@
         <b-navbar-nav>
 
         <b-nav-item :to="{ name: 'search' }">Search</b-nav-item>
+        <b-nav-item :to="{ name: 'StageMatches' }">Stage Matches</b-nav-item>
+        <b-nav-item :to="{ name: 'AssociationMember' }" v-if="$root.store.isAssociationMember">Association Member </b-nav-item>
+        <b-nav-item :to="{ name: 'About' }">About</b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto" v-if="!$root.store.username">
+          <b-navbar-brand>Hello Guest</b-navbar-brand>
           <b-nav-item :to="{ name: 'login' }">Login</b-nav-item>
           <b-nav-item :to="{ name: 'register' }">Register</b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto" v-else>
         <b-nav-item-dropdown right>
           <template #button-content>
-            User
+            {{ getUserName }}
           </template>
-          <b-dropdown-item href="#">Favorites</b-dropdown-item>
-          <b-dropdown-item href="#">Log Out</b-dropdown-item>
+          <b-dropdown-item :to="{ name: 'FavoritesMatches', params: getUserName}">My Matches</b-dropdown-item>
         </b-nav-item-dropdown>
+        <b-nav-item href="#" v-on:click="Logout">Log Out</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -38,6 +42,11 @@ export default {
         this.$forceUpdate();
       });
     }
+  },
+  computed: {
+    getUserName(){
+      return this.$root.store.username
+    },
   }
 };
 </script>

@@ -24,7 +24,9 @@ import {
   AlertPlugin,
   ToastPlugin,
   LayoutPlugin, 
-  InputGroupPlugin
+  InputGroupPlugin,
+  TablePlugin,
+
 } from "bootstrap-vue";
 [
   FormGroupPlugin,
@@ -37,9 +39,13 @@ import {
   AlertPlugin,
   ToastPlugin,
   LayoutPlugin, 
-  InputGroupPlugin
+  InputGroupPlugin,
+  TablePlugin,
+
 ].forEach((x) => Vue.use(x));
 Vue.use(Vuelidate);
+
+axios.defaults.withCredentials = true;
 
 axios.interceptors.request.use(
   function(config) {
@@ -70,16 +76,30 @@ Vue.config.productionTip = false;
 
 const shared_data = {
   // username: localStorage.username,
-  username: "hilla",
-  login(username) {
+  username: "",
+  isAssociationMember: false,
+  login(username,isAssociationMember) {
     localStorage.setItem("username", username);
+    localStorage.setItem("isAssociationMember", isAssociationMember);
+    this.isAssociationMember = isAssociationMember;
     this.username = username;
     console.log("login", this.username);
   },
-  logout() {
-    console.log("logout");
-    localStorage.removeItem("username");
-    this.username = undefined;
+  async logout() {
+    try {
+      const resOfLogout = await axios.post(
+        "http://localhost:3000/Logout",
+        {
+        }
+      );
+      console.log("logout");
+      localStorage.removeItem("username");
+      localStorage.removeItem("isAssociationMember");
+      this.username = undefined;
+      this.isAssociationMember = false;
+    } catch (err) {
+      console.log(err);
+    }
   }
 };
 console.log(shared_data);
