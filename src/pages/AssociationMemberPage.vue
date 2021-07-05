@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1><b> Association Member Page</b></h1>
-    <b-button block pill variant="warning" to="AssociationMemberAddMatch"> <b>Add New Match</b> </b-button>
+    <b-button block pill variant="warning" to="/AssociationMember/AddMatch"> <b>Add New Match</b> </b-button>
     <br/>
         <b-table striped hover :items="items" :fields="fields">
             <template v-slot:cell(UpdateScore)="{ item }">
@@ -76,14 +76,14 @@
                 }
                 for(const futureGame of response.data.FutureMatches){
                     this.items.push({
-                        ID: pastGame.Match_Id,
-                        Date: pastGame.Date,
-                        Hour: pastGame.Hour,
-                        Stadium: pastGame.Stadium,
-                        Host_Team: pastGame.HomeTeamPrev.Team_name,
-                        Guest_Team: pastGame.AwayTeamPrev.Team_name,
+                        ID: futureGame.Match_Id,
+                        Date: futureGame.Date,
+                        Hour: futureGame.Hour,
+                        Stadium: futureGame.Stadium,
+                        Host_Team: futureGame.HomeTeamPrev.Team_name,
+                        Guest_Team: futureGame.AwayTeamPrev.Team_name,
                         Score: " - ",
-                        Referee: pastGame.MatchDetails.Referee.Full_name,
+                        Referee: futureGame.Referee.Full_name,
                         PastGame: false
                     });
                 }    

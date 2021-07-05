@@ -48,6 +48,21 @@ const routes = [
     component: () => import("./pages/AssociationMemberAddEventPage")
   },
   {
+    path: "/AssociationMember/AddMatch",
+    name: "AssociationMemberAddMatch",
+    component: () => import("./pages/AssociationMemberAddMatchPage")
+  },
+  {
+    path: "/PastSearches",
+    name: "PastSearches",
+    component: () => import("./pages/PastSearchesPage")
+  },
+  {
+    path: "/TeamPage/:id",
+    name: "TeamPage",
+    component: () => import("./pages/TeamPage")
+  },
+  {
     path: "*",
     name: "notFound",
     component: NotFound
