@@ -26,7 +26,7 @@ import {
   LayoutPlugin, 
   InputGroupPlugin,
   TablePlugin,
-
+  FormCheckboxPlugin
 } from "bootstrap-vue";
 [
   FormGroupPlugin,
@@ -41,7 +41,7 @@ import {
   LayoutPlugin, 
   InputGroupPlugin,
   TablePlugin,
-
+  FormCheckboxPlugin
 ].forEach((x) => Vue.use(x));
 Vue.use(Vuelidate);
 
@@ -78,11 +78,14 @@ const shared_data = {
   // username: localStorage.username,
   username: "",
   isAssociationMember: false,
-  login(username,isAssociationMember) {
+  userPastSearches: [],
+  login(username,isAssociationMember,) {
     localStorage.setItem("username", username);
     localStorage.setItem("isAssociationMember", isAssociationMember);
+    localStorage.setItem("userPastSearches", []);
     this.isAssociationMember = isAssociationMember;
     this.username = username;
+    this.userPastSearches = [];
     console.log("login", this.username);
   },
   async logout() {
@@ -95,8 +98,10 @@ const shared_data = {
       console.log("logout");
       localStorage.removeItem("username");
       localStorage.removeItem("isAssociationMember");
+      localStorage.removeItem("userPastSearches");
       this.username = undefined;
       this.isAssociationMember = false;
+      this.userPastSearches = [];
     } catch (err) {
       console.log(err);
     }
