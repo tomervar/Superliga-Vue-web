@@ -6,7 +6,7 @@
       style="max-width: 100rem;"
       class="mb-2"
     >
-    <img :src="img" class="card-img-up" alt="Image">
+    <img :src="img" class="card-img-up" alt="Image" @click="img_click_handle">
     <br/>
     <br/>
         <b-card-title>{{name}}</b-card-title>
@@ -35,6 +35,12 @@
             },
 
         }, 
+        methods:{
+          img_click_handle(){
+            console.log("img click handler");
+            this.$router.push("/TeamPage/"+this.id);
+          }
+        },
     }
 </script>
 
