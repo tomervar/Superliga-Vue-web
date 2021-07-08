@@ -3,7 +3,7 @@
     <p class="stageMatches_title">  Stage Matches </p>
     <div class="stageMarches_div">
         <div class="pastGames_div">
-            <b class="title"> Past Games </b>
+            <div class="title"><b> Past Games </b></div>
             <GameView class="singal_past_game_div"
             v-for="g in this.pastGames"
             :id="g.MatchDetails.Match_Id" 
@@ -127,7 +127,7 @@ export default {
 .title{
     font-size: 40px;
     text-align: center;
-    width: 50%;
+    width: 100%;
     font-weight: bold;
     color:  rgb(245, 180, 3);
     margin-right: 20px;

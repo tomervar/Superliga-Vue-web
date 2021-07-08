@@ -29,7 +29,7 @@
     <br/>
     <b-table striped hover :items="TeamsItems" :fields="TeamsSearchResFields" v-if="this.checked">
       <template v-slot:cell(TeamLogo)="{ item }">
-        <img :src="item.TeamLogo" height="50px" width="50px">
+        <img :src="item.TeamLogo" height="50px" width="50px" @click="img_click_handle(item)">
       </template>
     </b-table>
     <b-table striped hover :items="PlayersItems" :fields="PlayersSearchResFields" v-else>
@@ -157,6 +157,10 @@ export default {
     pastSearchs(){
       console.log("in pastSearchs");
       this.$router.push({name: 'PastSearches'});
+    },
+    img_click_handle(item){
+      console.log(item);
+      this.$router.push("/TeamPage/"+item.ID);
     }
   }
 }

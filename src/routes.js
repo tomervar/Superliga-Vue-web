@@ -63,6 +63,11 @@ const routes = [
     component: () => import("./pages/TeamPage")
   },
   {
+    path: "/About",
+    name: "About",
+    component: () => import("./pages/AboutPage")
+  },
+  {
     path: "*",
     name: "notFound",
     component: NotFound
