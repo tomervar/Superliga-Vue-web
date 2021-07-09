@@ -168,6 +168,7 @@ export default {
   border-radius: 10px;
   border-width: 5px;
   border-color:cadetblue;
+  background-color: white;
 }
 .game-title{
   text-align: center;
@@ -197,6 +198,7 @@ export default {
 .home_team_title{
   margin-right: 20px;
   text-align: center;
+  color: black;
 }
 .vs_div{
   display: flex;
@@ -210,7 +212,8 @@ export default {
 }
 .vs_text{
   display: flex;
-  float: left; 
+  float: left;
+  color: black; 
 
 }
 .away_team{
@@ -220,11 +223,13 @@ export default {
 .away_team_title{
   margin-right: 20px;
   text-align: center;
+  color: black;
 }
 .score_div{
   text-align: center;
   width: 100%;
   font-size: 30px;
+  color: black;
 }
 .no_score_div{
   text-align: center;

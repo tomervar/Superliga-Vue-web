@@ -98,6 +98,7 @@ export default {
   border-radius: 10px;
   border-width: 5px;
   border-color:rgb(44, 89, 116);
+  background-color: white;
 }
 .title_fav{
   text-align: center;

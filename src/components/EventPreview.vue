@@ -41,6 +41,7 @@
   position: relative;
   margin: 10px 10px;
   overflow: auto;  
+  color: black;
 
 }
 

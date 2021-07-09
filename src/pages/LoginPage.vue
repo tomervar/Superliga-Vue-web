@@ -45,7 +45,7 @@
       >
       <div class="mt-2">
         Do not have an account yet?
-        <router-link to="register"> Register in here</router-link>
+        <router-link class="routerLink" to="register"> Register in here</router-link>
       </div>
     </b-form>
     <b-alert
@@ -127,5 +127,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   max-width: 400px;
+  background-color: rgb(52, 68, 70);
 }
+
 </style>
