@@ -56,6 +56,8 @@
   border-width: 5px;
   overflow: auto;  
   border-color:rgb(44, 89, 116);
+  background-color: white;
+  color: black;
 }
 
 .team-preview .team-title {

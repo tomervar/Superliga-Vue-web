@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content">
     <h1 class="title">Search Page</h1>
     <label class="form-check-label" for="checkbox_div">
     Please Choose a Search Topic
@@ -167,9 +167,11 @@ export default {
 </script>
 
 <style scoped>
-
 #search-input {
   margin-left: 20px; 
   width: 500px; 
+}
+.res_div{
+  background-color: white;
 }
 </style>

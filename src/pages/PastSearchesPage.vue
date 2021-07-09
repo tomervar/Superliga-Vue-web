@@ -4,8 +4,8 @@
       <br/>
         <h3><b> All Team Searches</b></h3>
           <br/>
-        <div v-for="teamSearch in this.TeamsItems" :key="teamSearch.teamSearch_id">
-            <h4>Your search Query: <b style="color: red">{{ teamSearch.query }}</b></h4>
+        <div class="teamsearch_div" v-for="teamSearch in this.TeamsItems" :key="teamSearch.teamSearch_id">
+            <h4 style="color: blue">Your search Query: <b style="color: red">{{ teamSearch.query }}</b></h4>
             <b-table striped hover :items="teamSearch.results" :fields="TeamsSearchResFields">
                 <template v-slot:cell(TeamLogo)="{ item }">
                     <img :src="item.TeamLogo" height="50px" width="50px" @click="img_click_handle(item)">
@@ -15,8 +15,8 @@
       </div>
       <h3><b> All Players Searches</b></h3>
       <br/>
-        <div v-for="playerSearch in this.PlayersItems" :key="playerSearch.playerSearch_id">
-            <h4>Your search Query: <b style="color: red">{{ playerSearch.query }}</b></h4>
+        <div class="playersearch_div" v-for="playerSearch in this.PlayersItems" :key="playerSearch.playerSearch_id">
+            <h4 style="color: blue">Your search Query: <b style="color: red">{{ playerSearch.query }}</b></h4>
             <b-table striped hover :items="playerSearch.results" :fields="PlayersSearchResFields">
                 <template v-slot:cell(Image)="{ item }">
                     <img :src="item.Image" height="50px" width="50px">
@@ -80,5 +80,10 @@ export default {
 </script>
 
 <style>
-
+.teamsearch_div{
+    background-color: white;
+}
+.playersearch_div{
+    background-color: white;
+}
 </style>

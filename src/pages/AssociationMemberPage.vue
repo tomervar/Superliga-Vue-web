@@ -3,6 +3,7 @@
     <h1><b> Association Member Page</b></h1>
     <b-button block pill variant="warning" to="/AssociationMember/AddMatch"> <b>Add New Match</b> </b-button>
     <br/>
+    <div class="table_div">
         <b-table striped hover :items="items" :fields="fields">
             <template v-slot:cell(UpdateScore)="{ item }">
                 <b-button pill variant="primary" @click="updateScore(item)" v-if="item.PastGame">
@@ -15,6 +16,7 @@
                 </b-button>
             </template>
         </b-table>
+    </div>
   </div>
 </template>
 
@@ -105,5 +107,7 @@
 </script>
 
 <style>
-
+.table_div{
+    background-color: white;
+}
 </style>

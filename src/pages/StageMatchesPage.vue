@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content_div">
     <p class="stageMatches_title">  Stage Matches </p>
     <div class="stageMarches_div">
         <div class="pastGames_div">
@@ -24,7 +24,7 @@
             ></GameView>
         </div>
         <div class="futureGames_div">
-            <b class="title"> Future Games</b>
+            <div class="title"><b class="title"> Future Games</b></div>
             <GamePreview
             v-for="g in this.futureGames"
             :id="g.Match_Id" 
@@ -89,12 +89,16 @@ export default {
 </script>
 
 <style>
-
+.content_div{
+    background-image: url("../assets/img/background4.jpeg");
+    background-position: center;
+    background-size:auto;
+}
 .stageMatches_title{
   text-align: center;
   font-size: 50px;
   font-weight: bold;
-  color:  rgb(32, 216, 25);
+  color:  rgb(245, 180, 3);
 }
 .stageMarches_div{
   display: inline-block;
@@ -123,6 +127,7 @@ export default {
     justify-content: center;
     align-items: center;
     text-align: center;
+    
 }
 .title{
     font-size: 40px;

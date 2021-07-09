@@ -42,7 +42,7 @@ export default {
   text-align: center;
   font-size: 50px;
   font-weight: bold;
-  color:  rgb(0, 113, 117);
+  color:  rgb(255, 255, 255);
 }
 .float-child{
   width: 50%;

@@ -9,19 +9,25 @@
         ></TeamPreview>
         <br/>
         <h2><b style="color:red"> Players </b></h2>
+        <div class="TABLE_div">
         <b-table striped hover :items="this.teamPlayers" :fields="PlayersFields">
             <template v-slot:cell(Image)="{ item }">
                 <img :src="item.Image" height="50px" width="50px">
             </template>
         </b-table>
+        </div>
         <br/>
         <h2><b style="color:red"> Past Matches </b></h2>
+        <div class="TABLE_div">
         <b-table striped hover :items="Matches.pastMatches" :fields="PastMatchFields">
         </b-table>
+        </div>
         <br/>
         <h2><b style="color:red"> Future Matches </b></h2>
+        <div class="TABLE_div">
         <b-table striped hover :items="Matches.futureMatches" :fields="FutureMatchFields">
         </b-table>
+        </div>
   </div>
 </template>
 
@@ -134,5 +140,7 @@ export default {
 </script>
 
 <style>
-
+.TABLE_div{
+    background-color: white;
+}
 </style>
