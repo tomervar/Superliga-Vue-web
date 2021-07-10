@@ -118,13 +118,13 @@ export default {
                 }
                 for(const FutureMatch of response.data.Team_matches.next_matches){
                     this.Matches.futureMatches.push({
-                        ID: FutureMatch.MatchDetails.Match_Id,
-                        Date: FutureMatch.MatchDetails.Date,
-                        Hour: FutureMatch.MatchDetails.Hour,
-                        Stadium: FutureMatch.MatchDetails.Stadium,
-                        HostTeam: FutureMatch.MatchDetails.HomeTeamPrev.Team_name,
-                        GuestTeam: FutureMatch.MatchDetails.AwayTeamPrev.Team_name,
-                        Referee: FutureMatch.MatchDetails.Referee.Full_name,
+                        ID: FutureMatch.Match_Id,
+                        Date: FutureMatch.Date,
+                        Hour: FutureMatch.Hour,
+                        Stadium: FutureMatch.Stadium,
+                        HostTeam: FutureMatch.HomeTeamPrev.Team_name,
+                        GuestTeam: FutureMatch.AwayTeamPrev.Team_name,
+                        Referee: FutureMatch.Referee.Full_name,
 
                     });
                 }
